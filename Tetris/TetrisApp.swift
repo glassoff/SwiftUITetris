@@ -11,7 +11,18 @@ import SwiftUI
 struct TetrisApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView() {
+                CanvasView()
+                    .tabItem { Label("Game", systemImage: "list.dash") }
+                SettingsView()
+                    .tabItem { Label("Settings", systemImage: "square.and.pencil") }
+            }
+            .environmentObject(Settings())
         }
     }
+}
+
+class Settings: ObservableObject {
+    @Published var bgColor: Color = .red
+    @Published var borderColor: Color = .blue
 }

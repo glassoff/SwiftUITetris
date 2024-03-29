@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A24A5DC2BB2CADA00F70802 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3A24A5DB2BB2CADA00F70802 /* ComposableArchitecture */; };
 		3A3D3FAA2BA1A89B0061C58E /* TetrisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D3FA92BA1A89B0061C58E /* TetrisApp.swift */; };
 		3A3D3FAC2BA1A89B0061C58E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D3FAB2BA1A89B0061C58E /* ContentView.swift */; };
 		3A3D3FAE2BA1A89D0061C58E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3D3FAD2BA1A89D0061C58E /* Assets.xcassets */; };
@@ -14,6 +15,10 @@
 		3A3D3FBB2BA1A89D0061C58E /* TetrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D3FBA2BA1A89D0061C58E /* TetrisTests.swift */; };
 		3A3D3FC52BA1A89D0061C58E /* TetrisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D3FC42BA1A89D0061C58E /* TetrisUITests.swift */; };
 		3A3D3FC72BA1A89D0061C58E /* TetrisUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D3FC62BA1A89D0061C58E /* TetrisUITestsLaunchTests.swift */; };
+		3A3D3FD42BA1EBF30061C58E /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D3FD32BA1EBF30061C58E /* CubeView.swift */; };
+		3A3D3FD62BA1F1A60061C58E /* ElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3D3FD52BA1F1A60061C58E /* ElementView.swift */; };
+		3AB4D3B32BA343B500C5F7EB /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4D3B22BA343B500C5F7EB /* CanvasView.swift */; };
+		3AB4D3B52BA991C200C5F7EB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4D3B42BA991C100C5F7EB /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,10 @@
 		3A3D3FC02BA1A89D0061C58E /* TetrisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TetrisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3D3FC42BA1A89D0061C58E /* TetrisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisUITests.swift; sourceTree = "<group>"; };
 		3A3D3FC62BA1A89D0061C58E /* TetrisUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3A3D3FD32BA1EBF30061C58E /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
+		3A3D3FD52BA1F1A60061C58E /* ElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementView.swift; sourceTree = "<group>"; };
+		3AB4D3B22BA343B500C5F7EB /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		3AB4D3B42BA991C100C5F7EB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A24A5DC2BB2CADA00F70802 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +106,10 @@
 			children = (
 				3A3D3FA92BA1A89B0061C58E /* TetrisApp.swift */,
 				3A3D3FAB2BA1A89B0061C58E /* ContentView.swift */,
+				3A3D3FD32BA1EBF30061C58E /* CubeView.swift */,
+				3A3D3FD52BA1F1A60061C58E /* ElementView.swift */,
+				3AB4D3B22BA343B500C5F7EB /* CanvasView.swift */,
+				3AB4D3B42BA991C100C5F7EB /* SettingsView.swift */,
 				3A3D3FAD2BA1A89D0061C58E /* Assets.xcassets */,
 				3A3D3FAF2BA1A89D0061C58E /* Preview Content */,
 			);
@@ -143,6 +157,9 @@
 			dependencies = (
 			);
 			name = Tetris;
+			packageProductDependencies = (
+				3A24A5DB2BB2CADA00F70802 /* ComposableArchitecture */,
+			);
 			productName = Tetris;
 			productReference = 3A3D3FA62BA1A89B0061C58E /* Tetris.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +232,9 @@
 				Base,
 			);
 			mainGroup = 3A3D3F9D2BA1A89B0061C58E;
+			packageReferences = (
+				3A24A5DA2BB2CADA00F70802 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 3A3D3FA72BA1A89B0061C58E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,7 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A3D3FAC2BA1A89B0061C58E /* ContentView.swift in Sources */,
+				3A3D3FD62BA1F1A60061C58E /* ElementView.swift in Sources */,
+				3AB4D3B32BA343B500C5F7EB /* CanvasView.swift in Sources */,
+				3AB4D3B52BA991C200C5F7EB /* SettingsView.swift in Sources */,
 				3A3D3FAA2BA1A89B0061C58E /* TetrisApp.swift in Sources */,
+				3A3D3FD42BA1EBF30061C58E /* CubeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +606,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A24A5DA2BB2CADA00F70802 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A24A5DB2BB2CADA00F70802 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A24A5DA2BB2CADA00F70802 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A3D3F9E2BA1A89B0061C58E /* Project object */;
 }
