@@ -14,24 +14,30 @@ struct CanvasView: View {
     ]
 
     @State var rotationAngle: Angle = .degrees(0)
-    @State var xOffset: CGFloat = 0
-    @State var yOffset: CGFloat = 10
 
     @State var xOffsets: [CGFloat] = [0]
     @State var yOffsets: [CGFloat] = [0]
 
+    @State var isGameOver = false
+
     var body: some View {
+
         VStack {
 
             HStack {
                 Button("Left") {
-                    xOffsets[xOffsets.count - 1] -= 10
+                    xOffsets[xOffsets.count - 1] -= 20
                 }
                 Button("Rotate") {
                     rotationAngle += .degrees(90)
                 }
+                Button("Reload") {
+                    xOffsets = [0]
+                    yOffsets = [0]
+                    elements = [.g]
+                }
                 Button("Right") {
-                    xOffsets[xOffsets.count - 1] += 10
+                    xOffsets[xOffsets.count - 1] += 20
                 }
             }
 
@@ -45,9 +51,17 @@ struct CanvasView: View {
                                         .hidden()
                                         .onAppear() {
                                             xOffsets[i] = geometry.size.width/2
-                                            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+                                            Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
                                                 yOffsets[i] += 10
-                                                let minYOffset = minYOffset(excluding: i, containerHeight: geometry.size.height) - elementGeometry.size.height
+                                                let xRange: Range<CGFloat> = elementGeometry.frame(in: .global).minX ..< elementGeometry.frame(in: .global).maxX
+                                                let minYOffset = minYOffset(inXInterval: xRange, excluding: i, containerHeight: geometry.size.height) - elementGeometry.size.height
+
+                                                if minYOffset <= 0 {
+                                                    isGameOver = true
+                                                    timer.invalidate()
+                                                    return
+                                                }
+
                                                 if yOffsets[i] >= minYOffset {
                                                     yOffsets[i] = minYOffset
                                                     startNext()
@@ -64,7 +78,9 @@ struct CanvasView: View {
             }
 
         }
-
+        .alert(isPresented: $isGameOver, content: {
+            Alert(title: Text("Game over"), message: Text("Score is \(elements.count)"))
+        })
 
 
 //        GeometryReader(content: { geometry in
@@ -86,9 +102,10 @@ struct CanvasView: View {
 
     }
 
-    func minYOffset(excluding: Int, containerHeight: CGFloat) -> CGFloat {
+    func minYOffset(inXInterval xInterval: Range<CGFloat>, excluding: Int, containerHeight: CGFloat) -> CGFloat {
+        print(xInterval)
         var min: CGFloat = containerHeight
-        for (i, offset) in yOffsets.enumerated() where i != excluding {
+        for (i, offset) in yOffsets.enumerated() where i != excluding && xInterval.contains(xOffsets[i]) {
             if offset < min {
                 min = offset
             }
@@ -97,12 +114,10 @@ struct CanvasView: View {
     }
 
     func startNext() {
-        if elements.count < 5 {
-            let newElementType = ElementType.allCases.randomElement()!
-            elements.append(newElementType)
-            xOffsets.append(0)
-            yOffsets.append(0)
-        }
+        let newElementType = ElementType.allCases.randomElement()!
+        elements.append(newElementType)
+        xOffsets.append(0)
+        yOffsets.append(0)
     }
 }
 
